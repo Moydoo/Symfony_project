@@ -68,7 +68,7 @@
         },
         "post-install-cmd": [
             "@auto-scripts",
-            "@phpcs-scripts"
+            "@phpcs-scriptsa"
         ],
         "post-update-cmd": [
             "@auto-scripts",
