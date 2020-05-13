@@ -8,6 +8,8 @@
         "doctrine/doctrine-bundle": "*",
         "doctrine/doctrine-migrations-bundle": "*",
         "doctrine/orm": "*",
+        "laminas/laminas-code": "^3.4",
+        "laminas/laminas-eventmanager": "^3.2",
         "sensio/framework-extra-bundle": "^5.5",
         "sensiolabs/security-checker": "^6.0",
         "symfony/asset": "4.4.*",
