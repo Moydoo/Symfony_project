@@ -8,7 +8,6 @@ namespace App\DataFixtures;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Persistence\ObjectManager;
 use Faker\Factory;
-use Faker\Generator;
 
 /**
  * Class AbstractBaseFixtures.
@@ -18,21 +17,21 @@ abstract class AbstractBaseFixtures extends Fixture
     /**
      * Faker.
      *
-     * @var Generator
+     * @var \Faker\Generator
      */
     protected $faker;
 
     /**
      * Persistence object manager.
      *
-     * @var ObjectManager
+     * @var \Doctrine\Persistence\ObjectManager
      */
     protected $manager;
 
     /**
      * Load.
      *
-     * @param ObjectManager $manager Persistence object manager
+     * @param \Doctrine\Persistence\ObjectManager $manager Persistence object manager
      */
     public function load(ObjectManager $manager): void
     {
@@ -44,7 +43,7 @@ abstract class AbstractBaseFixtures extends Fixture
     /**
      * Load data.
      *
-     * @param ObjectManager $manager Persistence object manager
+     * @param \Doctrine\Persistence\ObjectManager $manager Persistence object manager
      */
     abstract protected function loadData(ObjectManager $manager): void;
 }
