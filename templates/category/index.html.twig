@@ -6,6 +6,10 @@
 
 {% block body %}
     <h1>{{ 'title_category_list'|trans }}</h1>
+    <a href="{{ url('category_create') }}" title="{{ 'category_create'|trans }}">
+        {{ 'category_create'|trans }}
+    </a>
+    </td>
     {% if categories is defined and categories|length %}
         <table class="table table-striped">
             <thead>
@@ -27,6 +31,12 @@
                     <td>
                         <a href="{{ url('category_show', {id: category.id}) }}" title="{{ 'action_view'|trans }}">
                             {{ 'action_view'|trans }}
+                        </a>
+                        <a href="{{ url('category_edit', {id: category.id}) }}" title="{{ 'action_edit'|trans }}">
+                            {{ 'action_edit'|trans }}
+                        </a>
+                        <a href="{{ url('category_delete', {id: category.id}) }}" title="{{ 'action_delete'|trans }}">
+                            {{ 'action_delete'|trans }}
                         </a>
                     </td>
                 </tr>

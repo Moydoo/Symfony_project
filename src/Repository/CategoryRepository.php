@@ -4,8 +4,13 @@ namespace App\Repository;
 
 use App\Entity\Category;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
+use Doctrine\ORM\OptimisticLockException;
+use Doctrine\ORM\ORMException;
 use Doctrine\Persistence\ManagerRegistry;
 use Doctrine\ORM\QueryBuilder;
+use http\Env\Request;
+use http\Env\Response;
+use Symfony\Component\Routing\Annotation\Route;
 
 /**
  * Class CategoryRepository
@@ -48,6 +53,34 @@ class CategoryRepository extends ServiceEntityRepository
     private function getOrCreateQueryBuilder(QueryBuilder $queryBuilder = null): QueryBuilder
     {
         return $queryBuilder ?? $this->createQueryBuilder('category');
+    }
+
+    /**
+     * Save record.
+     *
+     * @param Category $category Category entity
+     *
+     * @throws ORMException
+     * @throws OptimisticLockException
+     */
+    public function save(Category $category): void
+    {
+        $this->_em->persist($category);
+        $this->_em->flush($category);
+    }
+
+    /**
+     * Delete record.
+     *
+     * @param \App\Entity\Category $category Category entity
+     *
+     * @throws \Doctrine\ORM\ORMException
+     * @throws \Doctrine\ORM\OptimisticLockException
+     */
+    public function delete(Category $category): void
+    {
+        $this->_em->remove($category);
+        $this->_em->flush($category);
     }
     // /**
     //  * @return Category[] Returns an array of Category objects

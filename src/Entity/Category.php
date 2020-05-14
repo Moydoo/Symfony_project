@@ -9,6 +9,7 @@ use DateTimeInterface;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Gedmo\Mapping\Annotation as Gedmo;
 
 /**
  * Class Category.
@@ -35,6 +36,8 @@ class Category
      * @var DateTimeInterface
      *
      * @ORM\Column(type="datetime")
+     *
+     * @Gedmo\Timestampable(on="create")
      */
     private $createdAt;
 
@@ -44,6 +47,8 @@ class Category
      * @var DateTimeInterface
      *
      * @ORM\Column(type="datetime")
+     *
+     * @Gedmo\Timestampable(on="update")
      */
     private $updatedAt;
 
