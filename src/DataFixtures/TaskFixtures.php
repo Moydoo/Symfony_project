@@ -1,50 +1,47 @@
 <?php
 /**
- * Base fixtures.
+ * Task fixtures.
  */
 
 namespace App\DataFixtures;
 
-use Doctrine\Bundle\FixturesBundle\Fixture;
+use App\Entity\Task;
+use Doctrine\Common\DataFixtures\DependentFixtureInterface;
 use Doctrine\Persistence\ObjectManager;
-use Faker\Factory;
-use Faker\Generator;
 
 /**
- * Class AbstractBaseFixtures.
+ * Class TaskFixtures.
  */
-abstract class AbstractBaseFixtures extends Fixture
+class TaskFixtures extends AbstractBaseFixtures implements DependentFixtureInterface
 {
-    /**
-     * Faker.
-     *
-     * @var Generator
-     */
-    protected $faker;
-
-    /**
-     * Persistence object manager.
-     *
-     * @var ObjectManager
-     */
-    protected $manager;
-
-    /**
-     * Load.
-     *
-     * @param ObjectManager $manager Persistence object manager
-     */
-    public function load(ObjectManager $manager): void
-    {
-        $this->manager = $manager;
-        $this->faker = Factory::create();
-        $this->loadData($manager);
-    }
-
     /**
      * Load data.
      *
-     * @param ObjectManager $manager Persistence object manager
+     * @param \Doctrine\Persistence\ObjectManager $manager Persistence object manager
      */
-    abstract protected function loadData(ObjectManager $manager): void;
+    public function loadData(ObjectManager $manager): void
+    {
+        $this->createMany(50, 'tasks', function ($i) {
+            $task = new Task();
+            $task->setTitle($this->faker->sentence);
+            $task->setCreatedAt($this->faker->dateTimeBetween('-100 days', '-1 days'));
+            $task->setUpdatedAt($this->faker->dateTimeBetween('-100 days', '-1 days'));
+            $task->setCategory($this->getRandomReference('categories'));
+
+            return $task;
+        });
+
+        $manager->flush();
+    }
+
+    /**
+     * This method must return an array of fixtures classes
+     * on which the implementing class depends on.
+     *
+     * @return array Array of dependencies
+     */
+    public function getDependencies(): array
+    {
+        return [CategoryFixtures::class];
+    }
 }
