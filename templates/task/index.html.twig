@@ -11,7 +11,7 @@
             <thead>
             <tr>
                 <th>{{ 'label_id'|trans }}</th>
-                <th>{{ 'label_created_at'|trans }}</th>
+{#                <th>{{ 'label_created_at'|trans }}</th>#}
                 <th>{{ 'label_updated_at'|trans }}</th>
                 <th>{{ 'label_title'|trans }}</th>
                 <th>{{ 'label_category'|trans }}</th>
@@ -22,12 +22,12 @@
             {% for task in tasks %}
                 <tr>
                     <td>{{ task.id }}</td>
-                    <td>{{ task.createdAt|date('Y/m/d') }}</td>
+{#                    <td>{{ task.createdAt|date('Y/m/d') }}</td>#}
                     <td>{{ task.updatedAt|date('Y/m/d') }}</td>
                     <td>{{ task.title }}</td>
                     <td>{{ task.category.title }}</td>
                     <td>
-                        <a href="{{ url('task_show', {id: task.id}) }}" title="{{ 'action_view'|trans }}">
+                        <a class="show_item" href="{{ url('task_show', {id: task.id}) }}" title="{{ 'action_view'|trans }}">
                             {{ 'action_view'|trans }}
                         </a>
                     </td>

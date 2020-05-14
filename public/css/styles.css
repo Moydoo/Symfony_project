@@ -1,3 +1,42 @@
 p {
     color: red;
 }
+a{
+    font-weight: bold;
+}
+.create_item{
+    color: white;
+    background: #8cd98c;
+    border: 2px #40bf40 solid;
+    border-radius: 25px;
+    padding: 5px 15px 5px 15px;
+    margin-right: 10px;
+    position: absolute;
+    right: 0px;
+    top: 10px;
+
+}
+.show_item{
+    color: white;
+    background: #6699ff;
+    border: 2px #3377ff solid;
+    border-radius: 25px;
+    padding: 5px 15px 5px 15px;
+    margin-right: 10px;
+}
+.delete_item{
+    color: white;
+    background: #ff8080;
+    border: 2px #ff0000 solid;
+    border-radius: 25px;
+    padding: 5px 15px 5px 15px;
+    margin-right: 10px;
+}
+.edit_item{
+    color: white;
+    background: #ffd633;
+    border: 2px #ffd11a solid;
+    border-radius: 25px;
+    padding: 5px 15px 5px 15px;
+    margin-right: 10px;
+}
