@@ -6,6 +6,9 @@
 
 {% block body %}
     <h1>{{ 'title_contact_details'|trans({'%id%': contact.id|default('')}) }}</h1>
+    <a href="{{ url('contact_edit', {id: contact.id}) }}" title="{{ 'action_edit'|trans }}">
+        {{ 'action_edit'|trans }}
+    </a>
     {% if contact is defined and contact|length %}
         <dl class="dl-horizontal">
             <dt>{{ 'label_id'|trans }}</dt>

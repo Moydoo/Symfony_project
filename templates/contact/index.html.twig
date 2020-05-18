@@ -6,6 +6,9 @@
 
 {% block body %}
     <h1>{{ 'title_contact_list'|trans }}</h1>
+    <a href="{{ url('contact_create') }}" title="{{ 'action_create'|trans }}">
+        <img src="{{ asset('add.svg') }}" alt="create_action" class="add_icon">
+    </a>
     {% if contacts is defined and contacts|length %}
         <table class="table table-striped">
             <thead>
@@ -14,6 +17,7 @@
                 <th>{{ 'label_name'|trans }}</th>
                 <th>{{ 'label_surname'|trans }}</th>
                 <th>{{ 'label_actions'|trans }}</th>
+                <th>{{ 'label_delete'|trans }}</th>
             </tr>
             </thead>
             <tbody>
@@ -25,6 +29,11 @@
                     <td>
                         <a href="{{ url('contact_show', {id: contact.id}) }}" title="{{ 'action_view'|trans }}">
                             {{ 'action_view'|trans }}
+                        </a>
+                    </td>
+                    <td>
+                        <a href="{{ url('contact_delete', {id: contact.id}) }}" title="{{ 'action_delete'|trans }}">
+                            <img src="{{ asset('delete.svg') }}" alt="DELETE_action" class="delete_icon">
                         </a>
                     </td>
                 </tr>

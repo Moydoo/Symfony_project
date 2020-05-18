@@ -40,3 +40,23 @@ a{
     padding: 5px 15px 5px 15px;
     margin-right: 10px;
 }
+.delete_icon{
+    transition: 0.2s linear;
+    width: 7%;
+    opacity: 70%;
+}
+.delete_icon:hover{
+opacity: 100%;
+}
+.add_icon{
+    transition: 0.2s linear;
+    width: 3%;
+    opacity: 70%;
+    position: absolute;
+    right: 20px;
+    top: 10px;
+    z-index: 0;
+}
+.add_icon:hover{
+    opacity: 100%;
+}
