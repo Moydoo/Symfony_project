@@ -69,6 +69,17 @@ class Category
      */
     private $tasks;
 
+    /**
+     * Code.
+     *
+     * @var string
+     *
+     * @ORM\Column(type="string", length=64)
+     *
+     * @Gedmo\Slug(fields={"title"})
+     */
+    private $code;
+
     public function __construct()
     {
         $this->tasks = new ArrayCollection();
@@ -171,6 +182,18 @@ class Category
                 $task->setCategory(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getCode(): ?string
+    {
+        return $this->code;
+    }
+
+    public function setCode(string $code): self
+    {
+        $this->code = $code;
 
         return $this;
     }

@@ -8,8 +8,6 @@ use Doctrine\ORM\OptimisticLockException;
 use Doctrine\ORM\ORMException;
 use Doctrine\Persistence\ManagerRegistry;
 use Doctrine\ORM\QueryBuilder;
-use http\Env\Request;
-use http\Env\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
@@ -40,7 +38,7 @@ class CategoryRepository extends ServiceEntityRepository
     public function queryAll(): queryBuilder
     {
         return $this->getOrCreateQueryBuilder()
-            ->orderBy('category.updateAt', 'DESC');
+            ->orderBy('category.title', 'DESC');
     }
 
     /**
