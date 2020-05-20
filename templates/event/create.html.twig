@@ -1,0 +1,10 @@
+{% block body %}
+    {% include 'default/_form.html.twig' with {
+        page_title: 'title_event_create',
+        attr: {
+            method: 'POST',
+            action: url('event_create')
+        },
+        back_to_list_path: 'event_index',
+    } %}
+{% endblock %}

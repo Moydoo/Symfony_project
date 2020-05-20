@@ -1,0 +1,52 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    {{ 'title_event_list'|trans }}
+{% endblock %}
+
+{% block body %}
+    <div class="title_of_page">
+        <h1>{{ 'title_event_list'|trans }}</h1>
+    </div>
+    <a href="{{ url('event_create') }}" title="{{ 'action_create'|trans }}">
+        <img src="{{ asset('add.svg') }}" alt="create_action" class="add_icon">
+    </a>
+    {% if events is defined and events|length %}
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th>{{ 'label_id'|trans }}</th>
+                <th>{{ 'label_title'|trans }}</th>
+                <th>{{ 'label_place'|trans }}</th>
+                <th>{{ 'label_date'|trans }}</th>
+                <th>{{ 'label_actions'|trans }}</th>
+                <th>{{ 'action_delete'|trans }}</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for event in events %}
+                <tr>
+                    <td>{{ event.id }}</td>
+                    <td>{{ event.title }}</td>
+                    <td>{{ event.place }}</td>
+                    <td>{{ event.date|date('d/m/Y - H:i') }}</td>
+                    <td>
+                        <a href="{{ url('event_show', {id: event.id}) }}" title="{{ 'action_view'|trans }}">
+                            {{ 'action_view'|trans }}
+                        </a>
+                    </td>
+                    <td>
+                        <a href="{{ url('event_delete', {id: event.id}) }}" title="{{ 'action_delete'|trans }}">
+                            <img src="{{ asset('delete.svg') }}" alt="DELETE_action" class="delete_icon">
+                        </a>
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <p>
+            {{ 'message_empty_list'|trans }}
+        </p>
+    {% endif %}
+{% endblock %}
