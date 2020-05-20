@@ -7,8 +7,6 @@ namespace App\Controller;
 use App\Form\CategoryType;
 use App\Entity\Category;
 use App\Repository\CategoryRepository;
-use Doctrine\ORM\OptimisticLockException;
-use Doctrine\ORM\ORMException;
 use Symfony\Component\Form\Extension\Core\Type\FormType;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
