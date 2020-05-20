@@ -12,7 +12,7 @@ a{
     padding: 5px 15px 5px 15px;
     margin-right: 10px;
     position: absolute;
-    right: 0px;
+    right: 0;
     top: 10px;
 
 }
@@ -59,4 +59,7 @@ opacity: 100%;
 }
 .add_icon:hover{
     opacity: 100%;
+}
+.title_of_page{
+    margin: 20px 0 20px 0;
 }

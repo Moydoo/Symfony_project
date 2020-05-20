@@ -5,7 +5,9 @@
 {% endblock %}
 
 {% block body %}
-    <h1>{{ 'title_contact_list'|trans }}</h1>
+    <div class="title_of_page">
+        <h1>{{ 'title_contact_list'|trans }}</h1>
+    </div>
     <a href="{{ url('contact_create') }}" title="{{ 'action_create'|trans }}">
         <img src="{{ asset('add.svg') }}" alt="create_action" class="add_icon">
     </a>
@@ -17,7 +19,7 @@
                 <th>{{ 'label_name'|trans }}</th>
                 <th>{{ 'label_surname'|trans }}</th>
                 <th>{{ 'label_actions'|trans }}</th>
-                <th>{{ 'label_delete'|trans }}</th>
+                <th>{{ 'action_delete'|trans }}</th>
             </tr>
             </thead>
             <tbody>

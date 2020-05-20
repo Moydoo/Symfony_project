@@ -10,47 +10,45 @@
                 <source>label_id</source>
                 <target>Id</target>
             </trans-unit>
-            <trans-unit id="label_records">
-                <source>label_records</source>
-                <target>Rekordy</target>
+            <trans-unit id="title_contact_list">
+                <source>title_contact_list</source>
+                <target>Lista Kontaktów</target>
             </trans-unit>
-            <trans-unit id="label_title">
-                <source>label_title</source>
-                <target>Tytuł</target>
+            <trans-unit id="action_create">
+                <source>action_create</source>
+                <target>Utwórz</target>
             </trans-unit>
-            <trans-unit id="label_content">
-                <source>label_content</source>
-                <target>Treść</target>
+            <trans-unit id="label_name">
+                <source>label_name</source>
+                <target>Imię</target>
             </trans-unit>
-            <trans-unit id="label_tags">
-                <source>label_tags</source>
-                <target>Tagi</target>
+            <trans-unit id="label_surname">
+                <source>label_surname</source>
+                <target>Nazwisko</target>
             </trans-unit>
-            <trans-unit id="message_empty_list">
-                <source>message_empty_list</source>
-                <target>Pusta lista</target>
+            <trans-unit id="label_app_title">
+                <source>label_app_title</source>
+                <target>OgarnijSię!</target>
             </trans-unit>
-            <trans-unit id="title_record_list">
-                <source>title_record_list</source>
-                <target>Lista rekordów</target>
+            <trans-unit id="label_main_page">
+                <source>label_main_page</source>
+                <target>Strona Główna</target>
             </trans-unit>
-            <trans-unit id="label_actions_visit">
-                <source>label_actions_visit</source>
-                <target>Szczegóły</target>
+            <trans-unit id="label_events">
+                <source>label_events</source>
+                <target>Wydarzenia</target>
             </trans-unit>
-            <trans-unit id="action_comeback">
-                <source>action_comeback</source>
-                <target>Wróć</target>
+            <trans-unit id="label_contacts">
+                <source>label_contacts</source>
+                <target>Kontakty</target>
             </trans-unit>
-<!--            TUTAJ USUNĘ-->
             <trans-unit id="title_category_list">
                 <source>title_category_list</source>
                 <target>Lista kategorii</target>
             </trans-unit>
-
-            <trans-unit id="category_create">
-                <source>category_create</source>
-                <target>Stwórz</target>
+            <trans-unit id="label_categories">
+                <source>label_categories</source>
+                <target>Kategorie</target>
             </trans-unit>
 
             <trans-unit id="label_updated_at">
