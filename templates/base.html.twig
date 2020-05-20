@@ -11,6 +11,17 @@
 <body>
 <div class="container-fluid">
     {% include 'default/_flash_messages.html.twig' %}
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+                <a class="nav-item nav-link active" href="#">label_main_page <span class="sr-only">(current)</span></a>
+                <a class="nav-item nav-link" href="{{url('task_index')}}">label_events</a>
+                <a class="nav-item nav-link" href="{{ url('contact_index') }}">label_contacts</a>
+                <a class="nav-item nav-link " href="{{ url('category_index') }}">label_categories</a>
+            </div>
+        </div>
+    </nav>
+
     {% block body %}{% endblock %}
 </div>
 {% block javascripts %}
