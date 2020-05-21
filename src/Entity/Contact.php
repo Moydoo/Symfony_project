@@ -72,7 +72,7 @@ class Contact
      *
      * @var string
      *
-     * @ORM\Column(type="string", length=64, nullable=true)
+     * @ORM\Column(type="string", length=32, nullable=true)
      *
      * @Assert\Regex("/[1-9]/")
      */
