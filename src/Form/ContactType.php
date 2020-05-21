@@ -7,6 +7,8 @@ namespace App\Form;
 
 use App\Entity\Contact;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\NumberType;
+use Symfony\Component\Form\Extension\Core\Type\TelType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -46,6 +48,24 @@ class ContactType extends AbstractType
                 'label' => 'label_surname',
                 'required' => true,
                 'attr' => ['max_length' => 64],
+            ]
+        )
+        ->add(
+            'phone',
+            TelType::class,
+            [
+            'label' => 'label_phone',
+            'required' => true,
+            'attr' => ['max_length' => 64],
+            ]
+        )
+        ->add(
+            'address',
+            TextType::class,
+            [
+            'label' => 'label_address',
+            'required' => true,
+            'attr' => ['max_length' => 64],
             ]
         );
     }

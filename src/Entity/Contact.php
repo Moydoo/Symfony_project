@@ -4,9 +4,12 @@ namespace App\Entity;
 
 use App\Repository\ContactRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
+
+
 
 /**
- * @ORM\Entity(repositoryClass=ContactRepository::class)
+ * @ORM\Entity(repositoryClass="App\Repository\ContactRepository", repositoryClass=ContactRepository::class)
  * @ORM\Table(name="contacts")
  */
 class Contact
@@ -28,6 +31,13 @@ class Contact
      * @var string
      *
      * @ORM\Column(type="string", length=64)
+     *
+     * @Assert\Type(type="string")
+     * @Assert\NotBlank
+     * @Assert\Length(
+     *     min="2"
+     * )
+     * @Assert\Regex("/[a-zA-Z]/")
      */
     private $name;
 
@@ -36,7 +46,15 @@ class Contact
      *
      * @var string
      *
+     *
      * @ORM\Column(type="string", length=64)
+     *
+     * @Assert\Type(type="string")
+     * @Assert\NotBlank
+     * @Assert\Length(
+     *     min="2"
+     * )
+     * @Assert\Regex("/[a-zA-Z]/")
      */
     private $surname;
 
@@ -54,7 +72,9 @@ class Contact
      *
      * @var string
      *
-     * @ORM\Column(type="string", length=9, nullable=true)
+     * @ORM\Column(type="string", length=64, nullable=true)
+     *
+     * @Assert\Regex("/[1-9]/")
      */
     private $phone;
 

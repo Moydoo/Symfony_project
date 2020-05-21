@@ -18,6 +18,8 @@
                 <th>{{ 'label_id'|trans }}</th>
                 <th>{{ 'label_name'|trans }}</th>
                 <th>{{ 'label_surname'|trans }}</th>
+                <th>{{ 'label_phone'|trans }}</th>
+                <th>{{ 'label_address'|trans }}</th>
                 <th>{{ 'label_actions'|trans }}</th>
                 <th>{{ 'action_delete'|trans }}</th>
             </tr>
@@ -28,6 +30,8 @@
                     <td>{{ contact.id }}</td>
                     <td>{{ contact.name }}</td>
                     <td>{{ contact.surname }}</td>
+                    <td>{{ contact.phone }}</td>
+                    <td>{{ contact.address }}</td>
                     <td>
                         <a href="{{ url('contact_show', {id: contact.id}) }}" title="{{ 'action_view'|trans }}">
                             {{ 'action_view'|trans }}

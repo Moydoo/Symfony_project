@@ -24,6 +24,8 @@ class ContactFixtures extends AbstractBaseFixtures
             $contact = new Contact();
             $contact->setName($this->faker->word);
             $contact->setSurname($this->faker->word);
+            $contact->setAddress($this->faker->address);
+            $contact->setPhone($this->faker->phoneNumber);
             $this->manager->persist($contact);
         }
 
