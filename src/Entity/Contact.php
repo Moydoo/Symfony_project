@@ -6,7 +6,7 @@ use App\Repository\ContactRepository;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity(repositoryClass="App\Repository\ContactRepository")
+ * @ORM\Entity(repositoryClass=ContactRepository::class)
  * @ORM\Table(name="contacts")
  */
 class Contact
@@ -39,6 +39,24 @@ class Contact
      * @ORM\Column(type="string", length=64)
      */
     private $surname;
+
+    /**
+     * Address.
+     *
+     * @var string
+     *
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $address;
+
+    /**
+     * Phone.
+     *
+     * @var string
+     *
+     * @ORM\Column(type="string", length=9, nullable=true)
+     */
+    private $phone;
 
     /**
      * Getter for Id.
@@ -90,6 +108,51 @@ class Contact
     public function setSurname(string $surname): self
     {
         $this->surname = $surname;
+
+        return $this;
+    }
+
+    /**
+     * Getter for Address.
+     *
+     * @return string|null
+     */
+    public function getAddress(): ?string
+    {
+        return $this->address;
+    }
+
+    /**
+     * Setter for Address.
+     *
+     * @param string|null $address Address
+     *
+     */
+    public function setAddress(?string $address): self
+    {
+        $this->address = $address;
+
+        return $this;
+    }
+
+    /**
+     * Getter for Phone.
+     *
+     * @return string|null
+     */
+    public function getPhone(): ?string
+    {
+        return $this->phone;
+    }
+
+    /**
+     * Setter for Phone.
+     *
+     * @param string|null $phone Phone
+     */
+    public function setPhone(?string $phone): self
+    {
+        $this->phone = $phone;
 
         return $this;
     }

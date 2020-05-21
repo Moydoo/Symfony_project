@@ -79,18 +79,6 @@ class Category
      */
     private $title;
 
-    /**
-     * Tasks.
-     *
-     * @var \Doctrine\Common\Collections\ArrayCollection|\App\Entity\Task[] $tasks Tasks
-     *
-     * @ORM\OneToMany(
-     *     targetEntity="App\Entity\Task",
-     *     mappedBy="category",
-     * )
-     *
-     */
-    private $tasks;
 
     /**
      * Code.
@@ -112,9 +100,14 @@ class Category
      */
     private $code;
 
+    /**
+     * @ORM\OneToMany(targetEntity=Event::class, mappedBy="category")
+     */
+    private $events;
+
     public function __construct()
     {
-        $this->tasks = new ArrayCollection();
+        $this->events = new ArrayCollection();
     }
 
     /**
@@ -187,36 +180,6 @@ class Category
         $this->title = $title;
     }
 
-    /**
-     * @return Collection|Task[]
-     */
-    public function getTasks(): Collection
-    {
-        return $this->tasks;
-    }
-
-    public function addTask(Task $task): self
-    {
-        if (!$this->tasks->contains($task)) {
-            $this->tasks[] = $task;
-            $task->setCategory($this);
-        }
-
-        return $this;
-    }
-
-    public function removeTask(Task $task): self
-    {
-        if ($this->tasks->contains($task)) {
-            $this->tasks->removeElement($task);
-            // set the owning side to null (unless already changed)
-            if ($task->getCategory() === $this) {
-                $task->setCategory(null);
-            }
-        }
-
-        return $this;
-    }
 
     public function getCode(): ?string
     {
@@ -226,6 +189,37 @@ class Category
     public function setCode(string $code): self
     {
         $this->code = $code;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Event[]
+     */
+    public function getEvents(): Collection
+    {
+        return $this->events;
+    }
+
+    public function addEvent(Event $event): self
+    {
+        if (!$this->events->contains($event)) {
+            $this->events[] = $event;
+            $event->setCategory($this);
+        }
+
+        return $this;
+    }
+
+    public function removeEvent(Event $event): self
+    {
+        if ($this->events->contains($event)) {
+            $this->events->removeElement($event);
+            // set the owning side to null (unless already changed)
+            if ($event->getCategory() === $this) {
+                $event->setCategory(null);
+            }
+        }
 
         return $this;
     }

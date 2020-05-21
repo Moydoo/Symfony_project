@@ -19,6 +19,7 @@
                 <th>{{ 'label_title'|trans }}</th>
                 <th>{{ 'label_place'|trans }}</th>
                 <th>{{ 'label_date'|trans }}</th>
+                <th>{{ 'label_category'|trans }}</th>
                 <th>{{ 'label_actions'|trans }}</th>
                 <th>{{ 'action_delete'|trans }}</th>
             </tr>
@@ -30,6 +31,7 @@
                     <td>{{ event.title }}</td>
                     <td>{{ event.place }}</td>
                     <td>{{ event.date|date('d/m/Y - H:i') }}</td>
+                    <td>{{ event.category.title }}</td>
                     <td>
                         <a href="{{ url('event_show', {id: event.id}) }}" title="{{ 'action_view'|trans }}">
                             {{ 'action_view'|trans }}

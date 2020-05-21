@@ -5,8 +5,9 @@
 
 namespace App\Form;
 
-//use App\Entity\Category;
+use App\Entity\Category;
 use App\Entity\Event;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\DateTimeType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
@@ -57,19 +58,19 @@ class EventType extends AbstractType
                 'required' => true,
             ]
         );
-//        $builder->add(
-//            'category',
-//            EntityType::class,
-//            [
-//                'class' => Category::class,
-//                'choice_label' => function ($category) {
-//                    return $category->getTitle();
-//                },
-//                'label' => 'label_category',
-//                'placeholder' => 'label_none',
-//                'required' => true,
-//            ]
-//        );
+        $builder->add(
+            'category',
+            EntityType::class,
+            [
+                'class' => Category::class,
+                'choice_label' => function ($category) {
+                    return $category->getTitle();
+                },
+                'label' => 'label_category',
+                'placeholder' => 'label_none',
+                'required' => true,
+            ]
+        );
     }
 
     /**
