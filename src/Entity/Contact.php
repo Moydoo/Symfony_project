@@ -37,7 +37,7 @@ class Contact
      * @Assert\Length(
      *     min="2"
      * )
-     * @Assert\Regex("/[a-zA-Z]/")
+     * @Assert\Regex("/^[a-zA-Z]+$/")
      */
     private $name;
 
@@ -54,7 +54,7 @@ class Contact
      * @Assert\Length(
      *     min="2"
      * )
-     * @Assert\Regex("/[a-zA-Z]/")
+     * @Assert\Regex("/^[a-zA-Z]+$/")
      */
     private $surname;
 
@@ -74,7 +74,7 @@ class Contact
      *
      * @ORM\Column(type="string", length=32, nullable=true)
      *
-     * @Assert\Regex("/[1-9]/")
+     * @Assert\Regex("/^[1-9]+$/")
      */
     private $phone;
 
