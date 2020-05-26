@@ -17,7 +17,7 @@
                 <input class="form-control" type="search" name="event_category" placeholder="Insert category name" aria-label="Insert category name" value="{{ event_category }}">
             </div>
             <div class="col-auto">
-                <button class="btn btn-md btn-success" type="submit">Search</button>
+                <button class="btn btn-md btn-primary" type="submit">Search</button>
             </div>
         </div>
     </form>
@@ -32,7 +32,6 @@
                 <th>{{ knp_pagination_sortable(pagination, 'label_title'|trans, 'event.title') }}</th>
                 <th>{{ knp_pagination_sortable(pagination, 'label_place'|trans, 'event.place') }}</th>
                 <th>{{ knp_pagination_sortable(pagination, 'label_date'|trans, 'event.date') }}</th>
-{#                <th>{{ knp_pagination_sortable(pagination, 'label_category'|trans, 'event.category') }}</th>#}
                 <th>{{ 'label_category'|trans }}</th>
                 <th>{{ 'label_actions'|trans }}</th>
                 <th>{{ 'action_delete'|trans }}</th>
