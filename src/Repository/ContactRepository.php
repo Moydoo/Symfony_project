@@ -48,7 +48,7 @@ class ContactRepository extends ServiceEntityRepository
     public function queryAll(): QueryBuilder
     {
         return $this->getOrCreateQueryBuilder()
-            ->orderBy('contact.name', 'DESC');
+            ->orderBy('contact.name', 'ASC');
     }
 
     /**

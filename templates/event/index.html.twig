@@ -11,6 +11,16 @@
     <a href="{{ url('event_create') }}" title="{{ 'action_create'|trans }}">
         <img src="{{ asset('add.svg') }}" alt="create_action" class="add_icon">
     </a>
+    <form class="title_of_page right" method="get">
+        <div class="row no-gutters align-items-right">
+            <div>
+                <input class="form-control" type="search" name="event_category" placeholder="Insert category name" aria-label="Insert category name" value="{{ event_category }}">
+            </div>
+            <div class="col-auto">
+                <button class="btn btn-md btn-success" type="submit">Search</button>
+            </div>
+        </div>
+    </form>
     {% if pagination is defined and pagination.items|length %}
         <div class="navigation text-center">
             {{ knp_pagination_render(pagination) }}

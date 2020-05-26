@@ -63,3 +63,8 @@ opacity: 100%;
 .title_of_page{
     margin: 20px 0 20px 0;
 }
+.right{
+    position: absolute;
+    right: 40px;
+    top: 10%;
+}

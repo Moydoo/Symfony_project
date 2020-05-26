@@ -42,14 +42,17 @@ class EventController extends AbstractController
     public function index(Request $request, EventRepository $eventRepository, PaginatorInterface $paginator): Response
     {
         $pagination = $paginator->paginate(
-            $eventRepository->queryAll(),
+            $eventRepository->queryLikeCategory($request->get('event_category')),
             $request->query->getInt('page', 1),
             EventRepository::PAGINATOR_ITEMS_PER_PAGE
         );
 
         return $this->render(
             'event/index.html.twig',
-            ['pagination' => $pagination]
+            [
+                'pagination' => $pagination,
+                'event_category' => $request->get('event_category'),
+            ]
         );
     }
 

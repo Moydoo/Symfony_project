@@ -72,20 +72,39 @@ class EventRepository extends ServiceEntityRepository
     /**
      * Query all records.
      *
-     * @return \Doctrine\ORM\QueryBuilder Query builder
+     * @return QueryBuilder Query builder
      */
     public function queryAll(): QueryBuilder
     {
         return $this->getOrCreateQueryBuilder()
-            ->orderBy('event.date', 'DESC');
+            ->orderBy('event.date', 'ASC');
+    }
+
+    /**
+     * Search events by category.
+     *
+     * @param string|null $category
+     *
+     * @return QueryBuilder Query Builder
+     */
+    public function queryLikeCategory(?string $category): QueryBuilder
+    {
+        if (null === $category) {
+            return $this->queryAll();
+        }
+
+        return $this->queryAll()
+            ->join('event.category', 'c')
+            ->andWhere('c.title LIKE :var')
+            ->setParameter('var', '%'.$category.'%');
     }
 
     /**
      * Get or create new query builder.
      *
-     * @param \Doctrine\ORM\QueryBuilder|null $queryBuilder Query builder
+     * @param QueryBuilder|null $queryBuilder Query builder
      *
-     * @return \Doctrine\ORM\QueryBuilder Query builder
+     * @return QueryBuilder Query builder
      */
     private function getOrCreateQueryBuilder(QueryBuilder $queryBuilder = null): QueryBuilder
     {
