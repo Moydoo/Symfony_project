@@ -18,7 +18,7 @@
             <dt>{{ 'label_place'|trans }}</dt>
             <dd>{{  event.place }}</dd>
             <dt>{{ 'label_date'|trans }}</dt>
-            <dd>{{ event.date|date('d/m/Y - H:i') }}</dd>
+            <dd>{{ event.date|format_datetime('full', locale='pl') }}</dd>
 
         </dl>
         <p>

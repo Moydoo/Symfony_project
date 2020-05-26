@@ -74,7 +74,6 @@ class Contact
      *
      * @ORM\Column(type="string", length=32, nullable=true)
      *
-     * @Assert\Regex("/^[1-9]+$/")
      */
     private $phone;
 

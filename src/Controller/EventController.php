@@ -10,6 +10,7 @@ use App\Form\EventType;
 use App\Repository\EventRepository;
 use Doctrine\ORM\OptimisticLockException;
 use Doctrine\ORM\ORMException;
+use Knp\Component\Pager\PaginatorInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Form\Extension\Core\Type\FormType;
 use Symfony\Component\HttpFoundation\Request;
@@ -26,7 +27,9 @@ class EventController extends AbstractController
     /**
      * Index action.
      *
-     * @param EventRepository $eventRepository Event repository
+     * @param Request            $request         HTTP request
+     * @param EventRepository    $eventRepository Event repository
+     * @param PaginatorInterface $paginator       Paginator
      *
      * @return Response HTTP response
      *
@@ -36,11 +39,17 @@ class EventController extends AbstractController
      *     name="event_index",
      * )
      */
-    public function index(EventRepository $eventRepository): Response
+    public function index(Request $request, EventRepository $eventRepository, PaginatorInterface $paginator): Response
     {
+        $pagination = $paginator->paginate(
+            $eventRepository->queryAll(),
+            $request->query->getInt('page', 1),
+            EventRepository::PAGINATOR_ITEMS_PER_PAGE
+        );
+
         return $this->render(
             'event/index.html.twig',
-            ['events' => $eventRepository->findAll()]
+            ['pagination' => $pagination]
         );
     }
 
@@ -145,7 +154,7 @@ class EventController extends AbstractController
     /**
      * Delete action.
      *
-     * @param Request        $request        HTTP request
+     * @param Request         $request         HTTP request
      * @param Event           $event           Event entity
      * @param EventRepository $eventRepository Event repository
      *

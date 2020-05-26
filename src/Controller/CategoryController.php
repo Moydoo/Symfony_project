@@ -4,9 +4,11 @@
  */
 
 namespace App\Controller;
+
 use App\Form\CategoryType;
 use App\Entity\Category;
 use App\Repository\CategoryRepository;
+use Knp\Component\Pager\PaginatorInterface;
 use Symfony\Component\Form\Extension\Core\Type\FormType;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -23,9 +25,11 @@ class CategoryController extends AbstractController
     /**
      * Index action.
      *
-     * @param \App\Repository\CategoryRepository $categoryRepository Category repository
+     * @param Request            $request            HTTP request
+     * @param CategoryRepository $categoryRepository Category repository
+     * @param PaginatorInterface $paginator          Paginator
      *
-     * @return \Symfony\Component\HttpFoundation\Response HTTP response
+     * @return Response HTTP response
      *
      * @Route(
      *     "/",
@@ -33,11 +37,17 @@ class CategoryController extends AbstractController
      *     name="category_index",
      * )
      */
-    public function index(CategoryRepository $categoryRepository): Response
+    public function index(Request $request, CategoryRepository $categoryRepository, PaginatorInterface $paginator): Response
     {
+        $pagination = $paginator->paginate(
+            $categoryRepository->queryAll(),
+            $request->query->getInt('page', 1),
+            CategoryRepository::PAGINATOR_ITEMS_PER_PAGE
+        );
+
         return $this->render(
             'category/index.html.twig',
-            ['categories' => $categoryRepository->findAll()]
+            ['pagination' => $pagination]
         );
     }
 
@@ -46,7 +56,7 @@ class CategoryController extends AbstractController
      *
      * @param \App\Entity\Category $category Category entity
      *
-     * @return \Symfony\Component\HttpFoundation\Response HTTP response
+     * @return Response HTTP response
      *
      * @Route(
      *     "/{id}",
@@ -65,10 +75,10 @@ class CategoryController extends AbstractController
     /**
      * Create action.
      *
-     * @param \Symfony\Component\HttpFoundation\Request $request            HTTP request
-     * @param \App\Repository\CategoryRepository        $categoryRepository Category repository
+     * @param Request            $request            HTTP request
+     * @param CategoryRepository $categoryRepository Category repository
      *
-     * @return \Symfony\Component\HttpFoundation\Response HTTP response
+     * @return Response HTTP response
      *
      * @throws \Doctrine\ORM\ORMException
      * @throws \Doctrine\ORM\OptimisticLockException
@@ -102,11 +112,11 @@ class CategoryController extends AbstractController
     /**
      * Edit action.
      *
-     * @param \Symfony\Component\HttpFoundation\Request $request            HTTP request
-     * @param \App\Entity\Category                      $category           Category entity
-     * @param \App\Repository\CategoryRepository        $categoryRepository Category repository
+     * @param Request              $request            HTTP request
+     * @param \App\Entity\Category $category           Category entity
+     * @param CategoryRepository   $categoryRepository Category repository
      *
-     * @return \Symfony\Component\HttpFoundation\Response HTTP response
+     * @return Response HTTP response
      *
      * @throws \Doctrine\ORM\ORMException
      * @throws \Doctrine\ORM\OptimisticLockException
@@ -143,11 +153,11 @@ class CategoryController extends AbstractController
     /**
      * Delete action.
      *
-     * @param \Symfony\Component\HttpFoundation\Request $request            HTTP request
-     * @param \App\Entity\Category                      $category           Category entity
-     * @param \App\Repository\CategoryRepository        $categoryRepository Category repository
+     * @param Request              $request            HTTP request
+     * @param \App\Entity\Category $category           Category entity
+     * @param CategoryRepository   $categoryRepository Category repository
      *
-     * @return \Symfony\Component\HttpFoundation\Response HTTP response
+     * @return Response HTTP response
      *
      * @throws \Doctrine\ORM\ORMException
      * @throws \Doctrine\ORM\OptimisticLockException

@@ -20,7 +20,7 @@ class ContactFixtures extends AbstractBaseFixtures
      */
     public function loadData(ObjectManager $manager): void
     {
-        for ($i = 0; $i < 10; ++$i) {
+        for ($i = 0; $i < 50; ++$i) {
             $contact = new Contact();
             $contact->setName($this->faker->word);
             $contact->setSurname($this->faker->word);
