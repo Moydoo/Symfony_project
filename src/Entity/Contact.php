@@ -6,8 +6,6 @@ use App\Repository\ContactRepository;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
 
-
-
 /**
  * @ORM\Entity(repositoryClass="App\Repository\ContactRepository", repositoryClass=ContactRepository::class)
  * @ORM\Table(name="contacts")
@@ -64,6 +62,11 @@ class Contact
      * @var string
      *
      * @ORM\Column(type="string", length=255, nullable=true)
+     *
+     * @Assert\Type(type="string")
+     * @Assert\Length(
+     *     min="3"
+     * )
      */
     private $address;
 
@@ -73,6 +76,11 @@ class Contact
      * @var string
      *
      * @ORM\Column(type="string", length=32, nullable=true)
+     *
+     * @Assert\Type(type="string")
+     * @Assert\Length(
+     *     min="3"
+     * )
      *
      */
     private $phone;

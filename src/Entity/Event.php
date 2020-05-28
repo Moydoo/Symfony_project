@@ -5,6 +5,7 @@ namespace App\Entity;
 use App\Repository\EventRepository;
 use Doctrine\ORM\Mapping as ORM;
 use DateTimeInterface;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass=EventRepository::class)
@@ -29,6 +30,8 @@ class Event
      * @var DateTimeInterface
      *
      * @ORM\Column(type="datetime")
+     *
+     * @Assert\DateTime
      */
     private $date;
 
@@ -38,6 +41,12 @@ class Event
      * @var string
      *
      * @ORM\Column(type="string", length=255)
+     *
+     * @Assert\Type(type="string")
+     * @Assert\NotBlank
+     * @Assert\Length(
+     *     min="3"
+     * )
      */
     private $place;
 
@@ -47,6 +56,12 @@ class Event
      * @var string
      *
      * @ORM\Column(type="string", length=255)
+     *
+     * @Assert\Type(type="string")
+     * @Assert\NotBlank
+     * @Assert\Length(
+     *     min="3"
+     * )
      */
     private $title;
 

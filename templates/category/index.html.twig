@@ -5,7 +5,7 @@
 {% endblock %}
 
 {% block body %}
-    <h1>{{ 'title_category_list'|trans }}</h1>
+    <h1 class="title_of_page">{{ 'title_category_list'|trans }}</h1>
     <a href="{{ url('category_create') }}" title="{{ 'action_create'|trans }}">
         <img src="{{ asset('add.svg') }}" alt="create_action" class="add_icon">
     </a>
