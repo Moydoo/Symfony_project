@@ -28,7 +28,6 @@
         <table class="table table-striped">
             <thead>
             <tr>
-{#                <th>{{ knp_pagination_sortable(pagination, 'label_id'|trans, 'event.id') }}</th>#}
                 <th>{{ knp_pagination_sortable(pagination, 'label_title'|trans, 'event.title') }}</th>
                 <th>{{ knp_pagination_sortable(pagination, 'label_place'|trans, 'event.place') }}</th>
                 <th>{{ knp_pagination_sortable(pagination, 'label_date'|trans, 'event.date') }}</th>
@@ -40,7 +39,6 @@
             <tbody>
             {% for event in pagination.items %}
                 <tr>
-{#                    <td>{{ event.id }}</td>#}
                     <td>{{ event.title }}</td>
                     <td>{{ event.place }}</td>
                     <td>{{ event.date|format_datetime('full', locale='pl') }}</td>

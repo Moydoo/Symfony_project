@@ -1,5 +1,6 @@
-p {
-    color: red;
+*{
+    box-sizing: border-box;
+    margin: 0px;
 }
 a{
     font-weight: bold;
@@ -67,4 +68,20 @@ opacity: 100%;
     position: absolute;
     right: 40px;
     top: 10%;
+}
+.right_element{
+    font-size: 14px;
+    text-align: center;
+    z-index: 999;
+    padding: 30px 30px;
+    position: fixed;
+    right: 5%;
+    top: 80vh;
+    color: white;
+    background: rgba(1,1,1,0.8);
+    border-radius: 100px;
+    transition: 0.5s linear;
+}
+.right_element:hover{
+    background:rgba(1,1,1,1) ;
 }

@@ -11,17 +11,22 @@
 <body>
 <div class="container-fluid">
     {% include 'default/_flash_messages.html.twig' %}
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-            <div class="navbar-nav">
-                <a class="nav-item nav-link active" href="{{ url('main_index') }}">{{ 'label_main_page'|trans }} <span class="sr-only">(current)</span></a>
-                <a class="nav-item nav-link" href="{{url('event_index')}}">{{ 'label_events'|trans }}</a>
-                <a class="nav-item nav-link" href="{{ url('contact_index') }}">{{ 'label_contacts'|trans }}</a>
-                <a class="nav-item nav-link " href="{{ url('category_index') }}">{{ 'label_categories'|trans }}</a>
-                <a class="nav-item nav-link disabled" href="">{{ 'label_user_panel'|trans }}</a>
-            </div>
-        </div>
-    </nav>
+        {% if is_granted('IS_AUTHENTICATED_REMEMBERED') %}
+            <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+                <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                    <div class="navbar-nav">
+                        <a class="nav-item nav-link active" href="{{ url('main_index') }}">{{ 'label_main_page'|trans }} <span class="sr-only">(current)</span></a>
+                        <a class="nav-item nav-link" href="{{url('event_index')}}">{{ 'label_events'|trans }}</a>
+                        <a class="nav-item nav-link" href="{{ url('contact_index') }}">{{ 'label_contacts'|trans }}</a>
+                        <a class="nav-item nav-link " href="{{ url('category_index') }}">{{ 'label_categories'|trans }}</a>
+                    </div>
+                </div>
+            </nav>
+            <!-- Login button -->
+                <a href="{{ url('app_logout') }}"><div class="right_element">{{ 'action_logout'|trans }}</div></a>
+{#        {% else %}#}
+{#                <a href="{{ url('app_login') }}"><div class="right_element">{{ 'action_login'|trans }}</div></a>#}
+        {% endif %}
 
     {% block body %}{% endblock %}
 </div>
