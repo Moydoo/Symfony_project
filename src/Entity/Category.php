@@ -101,7 +101,7 @@ class Category
     private $code;
 
     /**
-     * @ORM\OneToMany(targetEntity=Event::class, mappedBy="category")
+     * @ORM\OneToMany(targetEntity=Event::class, mappedBy="category", fetch="EXTRA_LAZY")
      */
     private $events;
 

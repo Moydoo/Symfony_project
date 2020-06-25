@@ -86,6 +86,7 @@ class Contact
      * @Assert\Length(
      *     min="3"
      * )
+     * @Assert\Regex("/^[0-9]*$/")
      *
      */
     private $phone;

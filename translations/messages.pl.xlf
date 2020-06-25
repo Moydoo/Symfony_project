@@ -231,6 +231,26 @@
                 <source>message.deleted_successfully</source>
                 <target>Rekord został usunięty poprawnie</target>
             </trans-unit>
+            <trans-unit id="error_message_loggin">
+                <source>error_message_loggin</source>
+                <target>Jedno z podanych danych jest nieprawidłowe</target>
+            </trans-unit>
+            <trans-unit id="Email">
+                <source>Email</source>
+                <target>E-mail</target>
+            </trans-unit>
+            <trans-unit id="Password">
+                <source>Password</source>
+                <target>Hasło</target>
+            </trans-unit>
+            <trans-unit id="Sign_in">
+                <source>Sign_in</source>
+                <target>Zaloguj się</target>
+            </trans-unit>
+            <trans-unit id="Sign_in_message">
+                <source>Sign_in_message</source>
+                <target>Proszę się zalogować</target>
+            </trans-unit>
         </body>
     </file>
 </xliff>
