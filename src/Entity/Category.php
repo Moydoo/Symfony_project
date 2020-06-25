@@ -105,6 +105,9 @@ class Category
      */
     private $events;
 
+    /**
+     * Category constructor.
+     */
     public function __construct()
     {
         $this->events = new ArrayCollection();
@@ -181,11 +184,19 @@ class Category
     }
 
 
+    /**
+     * @return string|null
+     */
     public function getCode(): ?string
     {
         return $this->code;
     }
 
+    /**
+     * @param string $code
+     *
+     * @return $this
+     */
     public function setCode(string $code): self
     {
         $this->code = $code;
@@ -201,6 +212,11 @@ class Category
         return $this->events;
     }
 
+    /**
+     * @param Event $event
+     *
+     * @return $this
+     */
     public function addEvent(Event $event): self
     {
         if (!$this->events->contains($event)) {
@@ -211,6 +227,11 @@ class Category
         return $this;
     }
 
+    /**
+     * @param Event $event
+     *
+     * @return $this
+     */
     public function removeEvent(Event $event): self
     {
         if ($this->events->contains($event)) {

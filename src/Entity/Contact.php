@@ -1,5 +1,10 @@
 <?php
-
+/*
+ * This file is part of the Symfony package.
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
 namespace App\Entity;
 
 use App\Repository\ContactRepository;
@@ -109,6 +114,9 @@ class Contact
      * Setter for Name.
      *
      * @param string $name Name
+     *
+     * @return Contact
+     *
      */
     public function setName(string $name): self
     {
@@ -131,6 +139,8 @@ class Contact
      * Setter for Surname.
      *
      * @param string $surname Surname
+     *
+     * @return Contact
      */
     public function setSurname(string $surname): self
     {
@@ -154,6 +164,7 @@ class Contact
      *
      * @param string|null $address Address
      *
+     * @return Contact
      */
     public function setAddress(?string $address): self
     {
@@ -176,6 +187,8 @@ class Contact
      * Setter for Phone.
      *
      * @param string|null $phone Phone
+     *
+     * @return Contact
      */
     public function setPhone(?string $phone): self
     {

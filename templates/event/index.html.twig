@@ -14,10 +14,12 @@
     <form class="title_of_page right" method="get">
         <div class="row no-gutters align-items-right">
             <div>
-                <input class="form-control" type="search" name="event_category" placeholder="Insert category name" aria-label="Insert category name" value="{{ event_category }}">
+                <input class="form-control" type="search" name="event_category"
+                       placeholder="{{ 'category_name'|trans }}" aria-label="Insert category name"
+                       value="{{ event_category }}">
             </div>
             <div class="col-auto">
-                <button class="btn btn-md btn-primary" type="submit">Search</button>
+                <button class="btn btn-md btn-primary" type="submit">{{ 'label_earch'|trans }}</button>
             </div>
         </div>
     </form>

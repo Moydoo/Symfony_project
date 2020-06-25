@@ -25,18 +25,18 @@
             </thead>
             <tbody>
             {% for event in pagination.items %}
-                {% if date(event.date) < date() and date(event.date) > date('-7days')%}
-                <tr>
-                    <td>{{ event.title }}</td>
-                    <td>{{ event.place }}</td>
-                    <td>{{ event.date|format_datetime('full', locale='pl') }}</td>
-                    <td>{{ event.category.title }}</td>
-                    <td>
-                        <a href="{{ url('event_show', {id: event.id}) }}" title="{{ 'action_view'|trans }}">
-                            {{ 'action_view'|trans }}
-                        </a>
-                    </td>
-                </tr>
+                {% if date(event.date) < date() and date(event.date) > date('-7days') %}
+                    <tr>
+                        <td>{{ event.title }}</td>
+                        <td>{{ event.place }}</td>
+                        <td>{{ event.date|format_datetime('full', locale='pl') }}</td>
+                        <td>{{ event.category.title }}</td>
+                        <td>
+                            <a href="{{ url('event_show', {id: event.id}) }}" title="{{ 'action_view'|trans }}">
+                                {{ 'action_view'|trans }}
+                            </a>
+                        </td>
+                    </tr>
                 {% endif %}
             {% endfor %}
             </tbody>
@@ -49,7 +49,7 @@
             {{ 'message_empty_list'|trans }}
         </p>
     {% endif %}
-{#    future events#}
+    {#    future events#}
     <h3>{{ 'future_event_list'|trans }}</h3>
     {% if pagination is defined and pagination.items|length %}
         <div class="navigation text-center">
@@ -67,7 +67,7 @@
             </thead>
             <tbody>
             {% for event in pagination.items %}
-                {% if date(event.date) > date()%}
+                {% if date(event.date) > date() %}
                     <tr>
                         <td>{{ event.title }}</td>
                         <td>{{ event.place }}</td>
