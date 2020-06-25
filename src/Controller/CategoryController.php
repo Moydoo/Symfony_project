@@ -54,7 +54,7 @@ class CategoryController extends AbstractController
     /**
      * Show action.
      *
-     * @param \App\Entity\Category $category Category entity
+     * @param Category $category Category entity
      *
      * @return Response HTTP response
      *
@@ -113,7 +113,7 @@ class CategoryController extends AbstractController
      * Edit action.
      *
      * @param Request              $request            HTTP request
-     * @param \App\Entity\Category $category           Category entity
+     * @param Category $category           Category entity
      * @param CategoryRepository   $categoryRepository Category repository
      *
      * @return Response HTTP response
@@ -154,7 +154,7 @@ class CategoryController extends AbstractController
      * Delete action.
      *
      * @param Request              $request            HTTP request
-     * @param \App\Entity\Category $category           Category entity
+     * @param Category $category           Category entity
      * @param CategoryRepository   $categoryRepository Category repository
      *
      * @return Response HTTP response

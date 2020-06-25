@@ -1,10 +1,94 @@
 {% extends 'base.html.twig' %}
 
-    {% block title %}{{ 'label_app_title'|trans }}{% endblock %}
+{% block title %}
+    {{ 'title_event_list'|trans }}
+{% endblock %}
 
-    {% block body %}
-        <div class="title_of_page">
-            <h1>Aplikacja do zarządzania informacją osobistą</h1>
+{% block body %}
+    <div class="title_of_page">
+        <h1>{{ 'title_event_list'|trans }}</h1>
+    </div>
+    <h3>{{ 'actual_event_list'|trans }}</h3>
+    {% if pagination is defined and pagination.items|length %}
+        <div class="navigation text-center">
+            {{ knp_pagination_render(pagination) }}
         </div>
-
-    {% endblock %}
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th>{{ knp_pagination_sortable(pagination, 'label_title'|trans, 'event.title') }}</th>
+                <th>{{ knp_pagination_sortable(pagination, 'label_place'|trans, 'event.place') }}</th>
+                <th>{{ knp_pagination_sortable(pagination, 'label_date'|trans, 'event.date') }}</th>
+                <th>{{ 'label_category'|trans }}</th>
+                <th>{{ 'label_actions'|trans }}</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for event in pagination.items %}
+                {% if date(event.date) < date() and date(event.date) > date('-7days')%}
+                <tr>
+                    <td>{{ event.title }}</td>
+                    <td>{{ event.place }}</td>
+                    <td>{{ event.date|format_datetime('full', locale='pl') }}</td>
+                    <td>{{ event.category.title }}</td>
+                    <td>
+                        <a href="{{ url('event_show', {id: event.id}) }}" title="{{ 'action_view'|trans }}">
+                            {{ 'action_view'|trans }}
+                        </a>
+                    </td>
+                </tr>
+                {% endif %}
+            {% endfor %}
+            </tbody>
+        </table>
+        <div class="navigation text-center">
+            {{ knp_pagination_render(pagination) }}
+        </div>
+    {% else %}
+        <p>
+            {{ 'message_empty_list'|trans }}
+        </p>
+    {% endif %}
+{#    future events#}
+    <h3>{{ 'future_event_list'|trans }}</h3>
+    {% if pagination is defined and pagination.items|length %}
+        <div class="navigation text-center">
+            {{ knp_pagination_render(pagination) }}
+        </div>
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th>{{ knp_pagination_sortable(pagination, 'label_title'|trans, 'event.title') }}</th>
+                <th>{{ knp_pagination_sortable(pagination, 'label_place'|trans, 'event.place') }}</th>
+                <th>{{ knp_pagination_sortable(pagination, 'label_date'|trans, 'event.date') }}</th>
+                <th>{{ 'label_category'|trans }}</th>
+                <th>{{ 'label_actions'|trans }}</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for event in pagination.items %}
+                {% if date(event.date) > date()%}
+                    <tr>
+                        <td>{{ event.title }}</td>
+                        <td>{{ event.place }}</td>
+                        <td>{{ event.date|format_datetime('full', locale='pl') }}</td>
+                        <td>{{ event.category.title }}</td>
+                        <td>
+                            <a href="{{ url('event_show', {id: event.id}) }}" title="{{ 'action_view'|trans }}">
+                                {{ 'action_view'|trans }}
+                            </a>
+                        </td>
+                    </tr>
+                {% endif %}
+            {% endfor %}
+            </tbody>
+        </table>
+        <div class="navigation text-center">
+            {{ knp_pagination_render(pagination) }}
+        </div>
+    {% else %}
+        <p>
+            {{ 'message_empty_list'|trans }}
+        </p>
+    {% endif %}
+{% endblock %}

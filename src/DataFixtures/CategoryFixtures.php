@@ -17,6 +17,8 @@ class CategoryFixtures extends AbstractBaseFixtures
      * Load data.
      *
      * @param ObjectManager $manager Object manager
+     *
+     * @noinspection PhpHierarchyChecksy2Inspection
      */
     public function loadData(ObjectManager $manager): void
     {
