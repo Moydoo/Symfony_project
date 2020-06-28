@@ -4,6 +4,6 @@ doctrine_migrations:
     # as migrations classes should NOT be autoloaded
     namespace: DoctrineMigrations
 
-#    doctrine_migrations:
-#        migrations_paths:
-#            'DoctrineMigrations': '%kernel.project_dir%/src/Migrations'
+    doctrine_migrations:
+        migrations_paths:
+            'DoctrineMigrations': '%kernel.project_dir%/src/Migrations'

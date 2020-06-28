@@ -7,6 +7,11 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
+
+/**
+ * Security controller.
+ */
+
 namespace App\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -20,6 +25,8 @@ use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
 class SecurityController extends AbstractController
 {
     /**
+     * Login action
+     *
      * @param AuthenticationUtils $authenticationUtils
      *
      * @return Response
@@ -42,6 +49,8 @@ class SecurityController extends AbstractController
     }
 
     /**
+     * Logout action
+     *
      * @Route("/logout", name="app_logout")
      */
     public function logout()

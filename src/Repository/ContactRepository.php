@@ -1,4 +1,7 @@
 <?php
+/**
+ * Contact repository.
+ */
 /*
  * This file is part of the Symfony package.
  *

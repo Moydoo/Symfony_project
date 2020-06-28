@@ -1,4 +1,7 @@
 <?php
+/**
+ * Category repository.
+ */
 /*
  * This file is part of the Symfony package.
  *

@@ -87,7 +87,7 @@ class EventRepository extends ServiceEntityRepository
      *
      * @return QueryBuilder Query Builder
      */
-    public function queryLikeCategory(?string $category): QueryBuilder
+    public function queryLikeCategory($category): QueryBuilder
     {
         if (null === $category) {
             return $this->queryAll();
