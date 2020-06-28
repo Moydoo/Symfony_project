@@ -166,9 +166,9 @@ class LoginFormAuthenticator extends AbstractFormLoginAuthenticator implements P
     /**
      * Called when authentication executed and was successful!
      *
-     * @param Request $request     HTTP request
+     * @param Request        $request     HTTP request
      * @param TokenInterface $token       Authentication token
-     * @param string                                                               $providerKey The key of the firewall
+     * @param string         $providerKey The key of the firewall
      *
      * @return \Symfony\Component\HttpFoundation\RedirectResponse Redirect response
      *

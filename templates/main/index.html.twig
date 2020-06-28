@@ -29,7 +29,7 @@
                     <tr>
                         <td>{{ event.title }}</td>
                         <td>{{ event.place }}</td>
-                        <td>{{ event.date|format_datetime('full', locale='pl') }}</td>
+                        <td>{{ event.date|format_datetime('full') }}</td>
                         <td>{{ event.category.title }}</td>
                         <td>
                             <a href="{{ url('event_show', {id: event.id}) }}" title="{{ 'action_view'|trans }}">

@@ -251,6 +251,10 @@
                 <source>Sign_in_message</source>
                 <target>Please log in</target>
             </trans-unit>
+            <trans-unit id="message_form_error">
+                <source>message_form_error</source>
+                <target>Error! Please input correct value.</target>
+            </trans-unit>
         </body>
     </file>
 </xliff>

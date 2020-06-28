@@ -28,8 +28,8 @@
             {% for category in pagination.items %}
                 <tr>
                     <td>{{ category.id }}</td>
-                    <td>{{ category.createdAt|format_date('long',locale='pl') }}</td>
-                    <td>{{ category.updatedAt|format_date('long',locale='pl') }}</td>
+                    <td>{{ category.createdAt|format_date('long') }}</td>
+                    <td>{{ category.updatedAt|format_date('long') }}</td>
                     <td>{{ category.title }}</td>
                     <td>
                         <a href="{{ url('category_show', {id: category.id}) }}" title="{{ 'action_view'|trans }}">
@@ -38,7 +38,8 @@
                     </td>
                     <td>
                         {% if not category.events|length %}
-                            <a href="{{ url('category_delete', {id: category.id}) }}" title="{{ 'action_delete'|trans }}">
+                            <a href="{{ url('category_delete', {id: category.id}) }}"
+                               title="{{ 'action_delete'|trans }}">
                                 <img src="{{ asset('delete.svg') }}" alt="DELETE_action" class="delete_icon">
                             </a>
                         {% endif %}
